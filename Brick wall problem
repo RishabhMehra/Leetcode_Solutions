@@ -1,0 +1,20 @@
+class Solution:
+    def leastBricks(self, wall: List[List[int]]) -> int:
+        edges = {}
+       
+        for row in wall :
+            sum1 = 0
+            for brick in row:
+              sum1 = sum1 + brick
+              if sum1 in edges.keys() :
+                edges[sum1] = edges[sum1]+1
+              else :
+                edges[sum1] = 1
+            del edges[sum1]
+        if edges.values():
+            all_values = edges.values()
+            max_value = max(all_values)
+            return len(wall)-max_value
+        return len(wall)        
+        
+        
