@@ -1,0 +1,16 @@
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        counter ={}
+        for i in candyType:
+            if i in counter.keys():
+                counter[i]=counter[i]+1
+            else:
+                counter[i]=1
+                
+        n = len(candyType)/2
+        k = len(counter)
+        
+        if k >=n:
+            return int(n)
+        else :
+            return int(k)
